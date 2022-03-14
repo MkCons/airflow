@@ -46,9 +46,9 @@ ARG AIRFLOW_USER_HOME_DIR=/home/airflow
 # latest released version here
 ARG AIRFLOW_VERSION="2.2.4"
 
-ARG PYTHON_BASE_IMAGE="python:3.7-slim-bullseye"
+ARG PYTHON_BASE_IMAGE="python:3.8-slim-bullseye"
 
-ARG AIRFLOW_PIP_VERSION=22.0.4
+ARG AIRFLOW_PIP_VERSION=22.0.42
 ARG AIRFLOW_IMAGE_REPOSITORY="https://github.com/apache/airflow"
 ARG AIRFLOW_IMAGE_README_URL="https://raw.githubusercontent.com/apache/airflow/main/docs/docker-stack/README.md"
 
@@ -287,7 +287,7 @@ RUN if [[ ${AIRFLOW_INSTALLATION_METHOD} == "." ]]; then \
     fi;
 
 # Add extra python dependencies
-ARG ADDITIONAL_PYTHON_DEPS=""
+ARG ADDITIONAL_PYTHON_DEPS="mongo"
 # We can set this value to true in case we want to install .whl .tar.gz packages placed in the
 # docker-context-files folder. This can be done for both - additional packages you want to install
 # and for airflow as well (you have to set INSTALL_FROM_PYPI to false in this case)
