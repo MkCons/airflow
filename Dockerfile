@@ -48,7 +48,7 @@ ARG AIRFLOW_VERSION="2.2.4"
 
 ARG PYTHON_BASE_IMAGE="python:3.8-slim-bullseye"
 
-ARG AIRFLOW_PIP_VERSION=22.0.42
+ARG AIRFLOW_PIP_VERSION=22.0.4
 ARG AIRFLOW_IMAGE_REPOSITORY="https://github.com/apache/airflow"
 ARG AIRFLOW_IMAGE_README_URL="https://raw.githubusercontent.com/apache/airflow/main/docs/docker-stack/README.md"
 
