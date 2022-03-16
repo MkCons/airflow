@@ -38,7 +38,7 @@
 # ARG AIRFLOW_EXTRAS="amazon,async,celery,cncf.kubernetes,dask,docker,elasticsearch,ftp,google,google_auth,grpc,hashicorp,http,ldap,microsoft.azure,mysql,odbc,pandas,postgres,redis,sendgrid,sftp,slack,ssh,statsd,virtualenv"
 ARG AIRFLOW_EXTRAS="async,celery,cncf.kubernetes,dask,docker,elasticsearch,ftp,grpc,hashicorp,http,ldap,mysql,odbc,pandas,postgres,redis,sendgrid,sftp,slack,ssh,statsd,virtualenv"
 
-ARG ADDITIONAL_AIRFLOW_EXTRAS=""
+ARG ADDITIONAL_AIRFLOW_EXTRAS="mongo"
 ARG ADDITIONAL_PYTHON_DEPS=""
 
 ARG AIRFLOW_HOME=/opt/airflow
@@ -289,7 +289,7 @@ RUN if [[ ${AIRFLOW_INSTALLATION_METHOD} == "." ]]; then \
     fi;
 
 # Add extra python dependencies
-ARG ADDITIONAL_PYTHON_DEPS="mongo"
+ARG ADDITIONAL_PYTHON_DEPS=""
 # We can set this value to true in case we want to install .whl .tar.gz packages placed in the
 # docker-context-files folder. This can be done for both - additional packages you want to install
 # and for airflow as well (you have to set INSTALL_FROM_PYPI to false in this case)
