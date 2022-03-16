@@ -456,6 +456,7 @@ RUN bash /scripts/docker/install_mysql.sh prod \
     && mkdir -pv "${AIRFLOW_HOME}" \
     && mkdir -pv "${AIRFLOW_HOME}/dags" \
     && mkdir -pv "${AIRFLOW_HOME}/logs" \
+    && mkdir -pv "${AIRFLOW_HOME}/keys" \
     && chown -R airflow:0 "${AIRFLOW_USER_HOME_DIR}" "${AIRFLOW_HOME}" \
     && chmod -R g+rw "${AIRFLOW_USER_HOME_DIR}" "${AIRFLOW_HOME}" \
     && find "${AIRFLOW_HOME}" -executable -print0 | xargs --null chmod g+x \
