@@ -78,7 +78,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana.ini:/etc/grafana/grafana.ini
 
   postgres:
     image: postgres:13
