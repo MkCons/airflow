@@ -73,9 +73,16 @@ x-airflow-common:
       condition: service_healthy
 
 services:
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana.ini:/etc/grafana/grafana.ini
+
   postgres:
     image: postgres:13
-    expose:
+    ports:
       - 5432:5432
     environment:
       POSTGRES_USER: airflow
