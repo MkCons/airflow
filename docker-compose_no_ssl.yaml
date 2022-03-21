@@ -75,6 +75,8 @@ x-airflow-common:
 services:
   mongo:
     image: mongo
+    ports:
+      - 5432:5432
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: dbadmin
