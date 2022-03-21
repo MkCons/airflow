@@ -73,6 +73,12 @@ x-airflow-common:
       condition: service_healthy
 
 services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: dbadmin
+      MONGO_INITDB_ROOT_PASSWORD: ppass1234
   grafana:
     image: grafana/grafana
     ports:
