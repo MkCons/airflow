@@ -76,7 +76,7 @@ services:
   mongo:
     image: mongo
     ports:
-      - 5432:5432
+      - 27017:27017
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: dbadmin
