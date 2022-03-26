@@ -92,6 +92,8 @@ services:
     image: httpd
     ports:
       - 8080:8080
+      - 443:443
+      - 80:80
     volumes:
       - ./httpd/conf:/usr/local/apache2/conf
 
