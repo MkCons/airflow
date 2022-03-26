@@ -88,6 +88,13 @@ services:
     volumes:
       - ./grafana.ini:/etc/grafana/grafana.ini
 
+  httpd:
+    image: httpd
+    ports:
+      - 8080:8080
+    volumes:
+      - ./httpd/conf:/usr/local/apache2/conf
+
   postgres:
     image: postgres:13
     ports:
