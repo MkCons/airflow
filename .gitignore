@@ -6,6 +6,8 @@ dbinit.py
 initdb.py
 secrets.py
 
+pocs
+
 # Airflow sqlite databases
 airflow.db
 unittests.db

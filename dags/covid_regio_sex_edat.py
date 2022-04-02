@@ -39,9 +39,9 @@ with DAG(
         mongo = MongoHook(conn_id="MongoURV")
         metadata = mongo.get_collection(METADATA_NAME, DB)
         data = mongo.get_collection(COLLECTION, DB)
-        previous_execution = metadata.find_one({'collection': COLLECTION}, {'offset': 1})
+        previous_execution = metadata.find_one({'collection': COLLECTION}, {'num_records': 1})
         if previous_execution is not None:
-            offset = previous_execution['offset']
+            offset = previous_execution['num_records']
 
         while True:
             query = {'$offset': offset, '$limit': limit, '$order': order}
@@ -60,7 +60,7 @@ with DAG(
 
             if len(response) < limit:
                 res = metadata.update_one({'collection': COLLECTION},
-                                          {'$set': {'offset': offset,
+                                          {'$set': {'num_records': offset,
                                                     'url': doc}}, upsert=True)
                 if res is None:
                     raise Exception('Failed metadata insert')
