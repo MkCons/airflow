@@ -23,8 +23,8 @@ log = logging.getLogger(__name__)
 # dag
 with DAG(
     dag_id='covid_regio_sexe_edat',
-    schedule_interval='@daily',
-    start_date=pendulum.datetime(2022, 3, 19, 10, 0, 0, tz="UTC"),
+    schedule_interval='00 10 * * *',
+    start_date=pendulum.datetime(2022, 4, 2, tz="Europe/Madrid"),
     catchup=False,
     tags=['covid'],
     default_args={
