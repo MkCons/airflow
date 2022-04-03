@@ -81,6 +81,9 @@ services:
     environment:
       DB_TYPE: sqlite
       SSL_ACTIVE: 0
+    volumes:
+      - ./keys/github.pem:/etc/wiki/github.pem
+
   mongo:
     image: mongo
     ports:
@@ -89,12 +92,16 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: dbadmin
       MONGO_INITDB_ROOT_PASSWORD: ppass1234
+    volumes:
+      - mongodb-volume:/data/db
+
   grafana:
     image: grafana/grafana
     ports:
       - 3000:3000
     volumes:
       - ./grafana.ini:/etc/grafana/grafana.ini
+      - grafana-storage:/var/lib/grafana
 
   httpd:
     image: httpd
@@ -305,3 +312,5 @@ services:
 
 volumes:
   postgres-db-volume:
+  mongodb-volume:
+  grafana-storage:
