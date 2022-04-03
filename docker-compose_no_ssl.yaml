@@ -102,6 +102,7 @@ services:
     volumes:
       - ./grafana.ini:/etc/grafana/grafana.ini
       - grafana-storage:/var/lib/grafana
+      - ./grafana-plugins:/usr/local/var/lib/grafana/plugins
 
   httpd:
     image: httpd
